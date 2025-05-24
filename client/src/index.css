@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 45 100% 97%; /* #FEFCE8 - cream background */
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 264 90% 67%; /* #8B5CF6 - primary purple */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 54 96% 88%; /* #FDE047 - primary yellow */
+  --secondary-foreground: 264 90% 67%;
+  --accent: 37 93% 61%; /* #FB923C - accent orange */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 264 90% 67%;
+  --radius: 1.5rem; /* 24px for more rounded corners */
+  
+  /* Custom story app colors */
+  --primary-purple: 264 90% 67%; /* #8B5CF6 */
+  --primary-yellow: 54 96% 88%; /* #FDE047 */
+  --secondary-purple: 264 85% 75%; /* #A78BFA */
+  --secondary-yellow: 54 91% 91%; /* #FEF08A */
+  --accent-orange: 37 93% 61%; /* #FB923C */
+  --bg-cream: 45 100% 97%; /* #FEFCE8 */
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 264 90% 67%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 54 96% 88%;
+  --secondary-foreground: 264 90% 67%;
+  --accent: 37 93% 61%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: hsl(var(--bg-cream));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-heading {
+    font-family: 'Fredoka One', cursive;
+  }
+}
+
+@layer utilities {
+  .text-primary-purple {
+    color: hsl(var(--primary-purple));
+  }
+  
+  .text-primary-yellow {
+    color: hsl(var(--primary-yellow));
+  }
+  
+  .bg-primary-purple {
+    background-color: hsl(var(--primary-purple));
+  }
+  
+  .bg-primary-yellow {
+    background-color: hsl(var(--primary-yellow));
+  }
+  
+  .bg-accent-orange {
+    background-color: hsl(var(--accent-orange));
+  }
+  
+  .border-primary-purple {
+    border-color: hsl(var(--primary-purple));
+  }
+  
+  .border-primary-yellow {
+    border-color: hsl(var(--primary-yellow));
+  }
+  
+  .border-accent-orange {
+    border-color: hsl(var(--accent-orange));
+  }
+  
+  .hover\:bg-primary-purple:hover {
+    background-color: hsl(var(--primary-purple));
+  }
+  
+  .hover\:bg-primary-yellow:hover {
+    background-color: hsl(var(--primary-yellow));
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+.story-card {
+  transition: all 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+}
+
+.character-card {
+  transition: all 0.3s ease;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
